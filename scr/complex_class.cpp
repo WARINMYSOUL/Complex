@@ -49,63 +49,63 @@ std::ostream &operator<<(std::ostream &os, const Complex &obj) {
     return os;
 }
 
-bool Complex::operator<(Complex other) {
+bool Complex::operator<(const Complex& other) const {
     return this->get_length() < other.get_length();
 }
 
-bool Complex::operator>(Complex other) {
+bool Complex::operator>(const Complex& other) const{
     return this->get_length() > other.get_length();
 }
 
-bool Complex::operator==(Complex other) {
+bool Complex::operator==(const Complex& other) const {
     return this->get_length() == other.get_length();
 }
 
-bool Complex::operator!=(Complex other) {
+bool Complex::operator!=(const Complex& other) const {
     return this->get_length() != other.get_length();
 }
 
-bool Complex::operator<(float other) {
+bool Complex::operator<(float other) const{
     return this->get_length() < other;
 }
 
-bool Complex::operator>(float other) {
+bool Complex::operator>(float other) const{
     return this->get_length() > other;
 }
 
-bool Complex::operator==(float other) {
+bool Complex::operator==(float other) const{
     return this->get_length() == other;
 }
 
-bool Complex::operator!=(float other) {
+bool Complex::operator!=(float other) const{
     return this->get_length() != other;
 }
 
-bool Complex::operator<(int other) {
+bool Complex::operator<(int other) const{
     return this->get_length() < other;
 }
 
-bool Complex::operator>(int other) {
+bool Complex::operator>(int other) const{
     return this->get_length() > other;
 }
 
-bool Complex::operator==(int other) {
+bool Complex::operator==(int other) const{
     return this->get_length() == other;
 }
 
-bool Complex::operator!=(int other) {
+bool Complex::operator!=(int other) const{
     return this->get_length() != other;
 }
 
-float Complex::get_length() {
+float Complex::get_length()  const {
     return sqrt(pow(this->get_real_part(), 2) + pow(this->get_imaginary_part(), 2));
 }
 
-float Complex::get_real_part() {
+float Complex::get_real_part() const {
     return real_part;
 }
 
-float Complex::get_imaginary_part() {
+float Complex::get_imaginary_part() const {
     return imaginary_part;
 }
 

@@ -22,35 +22,35 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Complex &obj);
 
-    bool operator<(Complex other);
+    bool operator<(const Complex& other) const;
 
-    bool operator>(Complex other);
+    bool operator>(const Complex& other) const;
 
-    bool operator==(Complex other);
+    bool operator==(const Complex& other) const;
 
-    bool operator!=(Complex other);
+    bool operator!=(const Complex& other) const;
 
-    bool operator<(float other);
+    bool operator<(float other) const;
 
-    bool operator>(float other);
+    bool operator>(float other) const;
 
-    bool operator==(float other);
+    bool operator==(float other) const;
 
-    bool operator!=(float other);
+    bool operator!=(float other) const;
 
-    bool operator<(int other);
+    bool operator<(int other) const;
 
-    bool operator>(int other);
+    bool operator>(int other) const;
 
-    bool operator==(int other);
+    bool operator==(int other) const;
 
-    bool operator!=(int other);
+    bool operator!=(int other) const;
 
-    float get_length();
+    float get_length() const;
 
-    float get_real_part();
+    float get_real_part() const;
 
-    float get_imaginary_part();
+    float get_imaginary_part() const;
 
     void set_real_part(float r);
 
