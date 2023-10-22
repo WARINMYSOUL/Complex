@@ -3,21 +3,21 @@
 
 Complex::Complex(float r, float i) : real_part(r), imaginary_part(i) {}
 
-Complex Complex::operator+(Complex other) {
+Complex Complex::operator+(const Complex& other) const {
     Complex result;
     result.real_part = this->real_part + other.real_part;
     result.imaginary_part = this->imaginary_part + other.imaginary_part;
     return result;
 }
 
-Complex Complex::operator-(Complex other) {
+Complex Complex::operator-(const Complex& other) const {
     Complex result;
     result.real_part = this->real_part - other.real_part;
     result.imaginary_part = this->imaginary_part - other.imaginary_part;
     return result;
 }
 
-Complex Complex::operator*(Complex other) {
+Complex Complex::operator*(const Complex& other) const {
     Complex result;
     result.real_part = this->real_part * other.real_part - this->imaginary_part * other.imaginary_part;
     result.imaginary_part = this->real_part * other.imaginary_part + other.real_part * this->imaginary_part;
@@ -25,11 +25,14 @@ Complex Complex::operator*(Complex other) {
 }
 
 Complex Complex::operator/(const Complex& other) const{
-    if (other.real_part == 0 && other.imaginary_part == 0) {
-
-    }
+    const float eps = 1e-6;
 
     float divisor = (other.real_part * other.real_part) + (other.imaginary_part * other.imaginary_part);
+
+    if (std::abs(divisor) < eps) {
+        throw std::runtime_error("You can't divide by 0");
+    }
+
     float newReal = ((real_part * other.real_part) + (imaginary_part * other.imaginary_part)) / divisor;
     float newImaginary = ((imaginary_part * other.real_part) - (real_part * other.imaginary_part)) / divisor;
     return Complex(newReal, newImaginary);

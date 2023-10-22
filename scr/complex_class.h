@@ -10,11 +10,11 @@ private:
 public:
     Complex(float r = 0.0f, float i = 0.0f);
 
-    Complex operator+(Complex other);
+    Complex operator+(const Complex& other) const;
 
-    Complex operator-(Complex other);
+    Complex operator-(const Complex& other) const;
 
-    Complex operator*(Complex other);
+    Complex operator*(const Complex& other) const;
 
     Complex operator/(const Complex& other) const;
 
